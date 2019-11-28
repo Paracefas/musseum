@@ -8,14 +8,9 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
-app.get('/', (req, res) =>
+app.get('/:id', (req, res) =>
 {
-    res.send('<h1>Musseum</h1>')
-})
-
-app.post('/', (req, res) =>
-{
-    const id = req.body.id
+    const id = req.params.id
     const json = require('./musseum.json')
 
     res.json(json.musseum[id])
